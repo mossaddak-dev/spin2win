@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spin2Win – Play & Earn</title>
+    <style>
+      /* ====== Reset ======*/
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --clr-bg: #0d0d0d;
+        --clr-primary: #8f43ff;
+        --clr-secondary: #ffce00;
+        --clr-text: #f5f5f5;
+        --clr-muted: #bdbdbd;
+        --radius: 1.25rem;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--clr-bg);
+        color: var(--clr-text);
+        line-height: 1.55;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      /* ====== Utility ====== */
+      .container {
+        max-width: 1200px;
+        padding: 0 1rem;
+        margin: 0 auto;
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--clr-primary);
+        color: #fff;
+        padding: 0.9rem 2.2rem;
+        font-size: 1.1rem;
+        border-radius: var(--radius);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 0.4rem 1rem rgba(143, 67, 255, 0.4);
+      }
+
+      .btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0.6rem 1.4rem rgba(143, 67, 255, 0.6);
+      }
+
+      .section {
+        padding: 5rem 0;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      /* ====== Header ====== */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(13, 13, 13, 0.8);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.8);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+      }
+
+      .logo {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--clr-secondary);
+      }
+
+      .nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav li {
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      .nav li:hover {
+        color: var(--clr-secondary);
+      }
+
+      /* ====== Hero ====== */
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        align-items: center;
+        gap: 3rem;
+        padding-top: 3rem;
+      }
+
+      .hero-img {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1/1;
+      }
+
+      .hero-img img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        filter: drop-shadow(0 0 2rem var(--clr-primary));
+        animation: spin 10s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2.2rem, 5vw + 1rem, 4rem);
+        margin-bottom: 1.2rem;
+        color: var(--clr-secondary);
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        color: var(--clr-muted);
+      }
+
+      /* ====== Features ====== */
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background: #1a1a1a;
+        border-radius: var(--radius);
+        padding: 2rem;
+        text-align: center;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 0.6rem 1.4rem rgba(255, 206, 0, 0.25);
+      }
+
+      .feature-icon {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        color: var(--clr-secondary);
+      }
+
+      /* ====== CTA Section ====== */
+      .cta {
+        background: linear-gradient(135deg, #8f43ff 0%, #e73cb3 100%);
+        border-radius: var(--radius);
+        padding: 4rem 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 70%);
+        animation: pulse 8s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(0.7);
+        }
+        50% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(0.7);
+        }
+      }
+
+      .cta h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+      }
+
+      /* ====== Footer ====== */
+      footer {
+        text-align: center;
+        padding: 2rem 0;
+        font-size: 0.9rem;
+        color: var(--clr-muted);
+      }
+    </style>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-aV+YVKtnm2Mh9OYiL+zy/mHKyX6m03jkm0zKGP+amHVdZQXJvA9Xc5F2cVnS/GqhH+qsYz2GGGn4Y6X9lX61xA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- ====== Header ====== -->
+    <header>
+      <div class="container nav">
+        <div class="logo">Spin2Win</div>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="https://roadmapappendfiles.com/ynjymha07?key=3497275c149e3d9ef19a7fd0b1963663">Join Now</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- ====== Hero ====== -->
+    <section class="container hero section">
+      <div class="hero-content">
+        <h1>Spin. Win. Repeat.</h1>
+        <p>
+          Enter the ultimate wheel of fortune! Spin daily, complete challenges,
+          and cash out real rewards. Your next big win could be one spin away.
+        </p>
+        <a href="https://roadmapappendfiles.com/qjm2z0kh?key=3346350275a6238c2700368b60f04d4f" class="btn">Start Spinning</a>
+      </div>
+      <div class="hero-img">
+        <img src="image/ChatGPT Image Jul 13, 2025, 01_25_22 PM.png" alt="Spinning Prize Wheel" />
+      </div>
+    </section>
+
+    <!-- ====== Features ====== -->
+    <section id="features" class="container section text-center">
+      <h2>Why Choose Spin2Win?</h2>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-coins"></i></div>
+          <h3>Real Cash Rewards</h3>
+          <p>Cash out via PayPal, mobile banking, or crypto in minutes.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-bolt-lightning"></i></div>
+          <h3>Instant Spins</h3>
+          <p>No waiting! Spin anytime, anywhere on desktop or mobile.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
+          <h3>Secure & Fair</h3>
+          <p>Provably fair RNG and 256‑bit encryption keep your data safe.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== How It Works ====== -->
+    <section id="how" class="container section text-center">
+      <h2>How It Works</h2>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-user-plus"></i></div>
+          <h3>1. Sign Up</h3>
+          <p>Create your free account in less than 60 seconds.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-circle-notch"></i></div>
+          <h3>2. Spin Daily</h3>
+          <p>Collect daily free spins or buy bundles for bigger jackpots.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-wallet"></i></div>
+          <h3>3. Cash Out</h3>
+          <p>Withdraw your winnings instantly—no hidden fees.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== CTA ====== -->
+    <section id="cta" class="container section cta text-center">
+      <h2>Ready to win real money today?</h2>
+      <p style="margin-bottom: 2rem">
+        Join thousands of players who’ve already earned over <strong>$2M</strong>
+        in rewards this year.
+      </p>
+      <a href="https://roadmapappendfiles.com/ynjymha07?key=3497275c149e3d9ef19a7fd0b1963663" class="btn" style="background: #fff; color: #8f43ff; box-shadow: none">Create Account</a>
+    </section>
+
+    <!-- ====== Footer ====== -->
+    <footer>
+      © <span id="year"></span> Spin2Win. All Rights Reserved.
+    </footer>
+
+    <script>
+      // Update footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
